@@ -1,7 +1,26 @@
 <script>
 function timer() {
-    setInterval(function(){ getpos(); }, 3000);
+    setInterval(function(){
+		 getpos(); 
+		 guardar();
+	}, 3000);
 }
+
+function guardar(){
+	
+	var cx = document.getElementById('cur_posx').innerHTML;
+	var cy = document.getElementById('cur_posy').innerHTML;
+	
+		$.ajax({
+		type: 'POST',
+		datatype: 'jsonp',
+		url: 'http://www.nullpointerex.com/pruebagps/guardar.php',
+		data: 'cx='+cx+'&cy='+cy,
+		
+		});
+	
+	}
+	
 </script>
 <!DOCTYPE HTML>
 <html>
